@@ -87,3 +87,30 @@ class Solution:
             return True
         else:
             return False
+
+
+# Problem 5: reverse vowels of a string
+
+s = "IceCreAm"
+
+
+class Solution:
+    def reverseVowels(self, s):
+
+        vowels = {"a", "e", "i", "o", "u", "A", "E", "I", "O", "U"}
+        letters = list(s)
+
+        left = 0
+        right = len(s) - 1
+
+        while left < right:
+            if letters[left] not in vowels:
+                left += 1
+            elif letters[right] not in vowels:
+                right -= 1
+            else:
+                letters[left], letters[sright] = letters[right], letters[left]
+                left += 1
+                right -= 1
+
+        return "".join(letters)
