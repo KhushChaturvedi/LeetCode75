@@ -134,3 +134,32 @@ class Solution:
             right -= 1
 
         return " ".join(words)
+
+
+# Problem 7: Product of array except self
+
+nums = [1, 2, 3, 4]
+
+
+class Solution:
+    def productExceptSelf(self, nums):
+
+        n = len(nums)
+        left = [1] * n
+        right = [1] * n
+        running = 1
+        rightRunning = 1
+        answer = []
+
+        for i in range(len(nums)):
+            left[i] = running
+            running = running * nums[i]
+
+        for i in range(n - 1, -1, -1):
+            right[i] = rightRunning
+            rightRunning = rightRunning * nums[i]
+
+        for i in range(n):
+            answer.append(left[i] * right[i])
+
+        return answer
