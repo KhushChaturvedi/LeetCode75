@@ -163,3 +163,21 @@ class Solution:
             answer.append(left[i] * right[i])
 
         return answer
+
+
+# Problem 8: increasing triplet subsequence
+
+nums = [1, 2, 3, 4, 5]
+
+first = float("inf")
+second = float("inf")
+
+for x in nums:
+    if x <= first:
+        first = x
+    elif x <= second:
+        second = x
+    else:
+        return True
+
+return False
