@@ -181,3 +181,31 @@ for x in nums:
         return True
 
 return False
+
+
+# Problem 9: String Compression
+
+chars = ["a", "a", "b", "b", "c", "c", "c"]
+
+
+class Solution:
+    def compress(self, chars):
+
+        write = 0
+        count = 0
+
+        for read in range(len(chars)):
+            count += 1
+
+            if read + 1 == len(chars) or chars[read] != chars[read + 1]:
+                chars[write] = chars[read]
+                write += 1
+
+                if count > 1:
+                    for digit in str(count):
+                        chars[write] = digit
+                        write += 1
+
+                count = 0
+
+        return write
