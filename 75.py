@@ -224,3 +224,22 @@ class Solution:
         for right in range(len(nums)):
             if nums[right] != 0:
                 nums[left], nums[right] = nums[right], nums[left]
+                left += 1
+
+
+# Problem 11: In subsequence
+
+s = "abc"
+t = "ahbgdc"
+
+
+class Solution:
+    def inSubsequence(self, s, t):
+
+        i = 0
+
+        for ch in range(len(t)):
+            if i < len(s) and t[ch] == s[i]:
+                i += 1
+
+        return i == len(s)
