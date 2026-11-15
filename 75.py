@@ -271,3 +271,30 @@ class Solution:
                 right -= 1
 
         return best
+
+
+# Problem 13: Max numbers of k sum pairs
+
+nums = [1, 2, 3, 4]
+k = 5
+
+
+class Solution:
+    def maxOperations(self, max, k):
+
+        nums.sort()
+        left = 0
+        right = len(nums) - 1
+        ops = 0
+
+        while left < right:
+            if nums[left] + nums[right] == k:
+                ops += 1
+                left += 1
+                right -= 1
+            elif nums[left] + nums[right] < k:
+                left += 1
+            else:
+                right -= 1
+
+        return ops
