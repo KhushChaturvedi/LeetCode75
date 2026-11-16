@@ -321,3 +321,32 @@ class Solution:
         average = best / k
 
         return average
+
+
+# Problem 15: Maximum number of vowels in a substring of given length
+
+s = "abciiidef"
+k = 3
+
+
+class Solution:
+    def maxVowels(self, s, k):
+        count = 0
+        vowels = ("a", "e", "i", "o", "u")
+
+        for letter in s[:k]:
+            if letter in vowels:
+                count += 1
+
+        best = count
+
+        for i in range(k, len(s)):
+            if s[i] in vowels:
+                count += 1
+            if s[i - k] in vowels:
+                count -= 1
+
+            if count > best:
+                best = count
+
+        return best
