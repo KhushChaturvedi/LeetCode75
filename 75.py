@@ -298,3 +298,26 @@ class Solution:
                 right -= 1
 
         return ops
+
+
+# Problem 14: Maximum Average Subarray I
+
+nums = [1, 12, -5, -6, 50, 3]
+k = 4
+
+
+class Solution:
+    def findMaxAverage(self, nums, k):
+
+        window = sum(nums[:k])
+        best = window
+
+        for i in range(k, len(nums)):
+            window = nums[i] + window - nums[i - k]
+
+            if window > best:
+                best = window
+
+        average = best / k
+
+        return average
