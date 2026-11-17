@@ -350,3 +350,30 @@ class Solution:
                 best = count
 
         return best
+
+
+# Problem 16: Max concecutives ones III
+
+nums = [1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0]
+k = 2
+
+
+class Solution:
+    def longestOnes(self, nums, k):
+
+        left = 0
+        best = 0
+        zeros = 0
+
+        for right in range(len(nums)):
+            if nums[right] == 0:
+                zeros += 1
+
+            while zeros > k:
+                if nums[left] == 0:
+                    zeros -= 1
+                left += 1
+
+            best = max(best, right - left + 1)
+
+        return best
