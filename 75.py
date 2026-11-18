@@ -403,3 +403,23 @@ class Solution:
             best = max(best, right - left + 1)
 
         return best - 1
+
+
+# problem 18: Find the Highest Altitude
+
+gain = [-5, 1, 5, 0, -7]
+
+
+class Solution:
+    def largestAltitude(self, gain):
+
+        alt = 0
+        best = 0
+
+        for i in range(len(gain)):
+            alt += gain[i]
+
+            if alt > best:
+                best = alt
+
+        return best
