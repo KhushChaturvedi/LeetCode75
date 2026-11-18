@@ -423,3 +423,25 @@ class Solution:
                 best = alt
 
         return best
+
+
+# Problem 19: Find pivot index
+
+nums = [1, 7, 3, 6, 5, 6]
+
+
+class Solution:
+    def pivotIndex(self, nums):
+
+        total = sum(nums)
+        left = 0
+
+        for i in range(len(nums)):
+            right = total - left - nums[i]
+
+            if left == right:
+                return i
+
+            left += nums[i]
+
+        return -1
