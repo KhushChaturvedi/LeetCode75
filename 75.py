@@ -471,3 +471,28 @@ class Solution:
                 second.append(number)
 
         return [first, second]
+
+
+# Problem 21: Unique number of occurences
+
+arr = [1, 2, 2, 1, 1, 3]
+
+
+class Solution:
+    def uniqueOccurrences(self, arr):
+
+        array = sorted(arr)
+        counts = []
+
+        i = 0
+        while i < len(array):
+            j = i
+
+            while j < len(array) and array[j] == array[i]:
+                j += 1
+
+            counts.append(j - i)
+
+            i = j
+
+            return len(set(counts) == len(counts))
