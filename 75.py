@@ -445,3 +445,29 @@ class Solution:
             left += nums[i]
 
         return -1
+
+
+# Problem 20: Find the Difference of Two Arrays
+
+nums1 = [1, 2, 3]
+nums2 = [2, 4, 6]
+
+
+class Solution:
+    def findDifference(self, nums1, nums2):
+
+        set1 = set(nums1)
+        set2 = set(nums2)
+
+        first = []
+        second = []
+
+        for number in set1:
+            if number not in set2:
+                first.append(number)
+
+        for number in set2:
+            if number not in set1:
+                second.append(number)
+
+        return [first, second]
