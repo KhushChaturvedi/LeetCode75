@@ -496,3 +496,64 @@ class Solution:
             i = j
 
             return len(set(counts) == len(counts))
+
+
+# Problem 22: Determine if Two Strings Are Close
+
+word1 = "abc"
+word2 = "bca"
+
+
+class Solution:
+    def closeStrings(self, word1, word2):
+
+        if len(word1) != len(word2):
+            return False
+
+        count1 = {}
+
+        for letters in word1:
+            if letters in count1:
+                count1[letters] += 1
+            else:
+                count1[letters] = 1
+
+        count2 = {}
+
+        for letters in word2:
+            if letters in count2:
+                count2[letters] += 1
+            else:
+                count2[letters] = 1
+
+        if set(count1) != set(count2):
+            return False
+
+        return sorted(count1.values()) == sorted(count2.values())
+
+
+# Problem 23: Equal row and column pairs
+
+grid = [[3, 2, 1], [1, 7, 6], [2, 7, 7]]
+
+
+class Solution:
+    def equalPairs(self, grid):
+
+        count = 0
+        size = len(grid)
+
+        for r in range(size):
+            row = grid[r]
+
+            for c in range(size):
+                column = []
+
+                for k in range(size):
+                    number = grid[k][c]
+                    column.append(number)
+
+                if row == column:
+                    count += 1
+
+        return count
