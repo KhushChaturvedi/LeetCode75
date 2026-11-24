@@ -557,3 +557,22 @@ class Solution:
                     count += 1
 
         return count
+
+
+# Problem 24: Removing Stars From a String
+
+s = "leet**cod*e"
+
+
+class Solution:
+    def removeStars(self, s):
+
+        stack = []
+
+        for ch in s:
+            if ch == "*":
+                stack.pop()
+            else:
+                stack.append(ch)
+
+        return "".join(stack)
