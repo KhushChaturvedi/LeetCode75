@@ -635,3 +635,21 @@ class Solution:
                 current += ch
 
         return current
+
+
+# Problem 27:  Number of Recent Calls
+
+from collections import deque
+
+
+class RecentCounter:
+    def __init__(self):
+        self.queue = dequeue()
+
+    def ping(self, t):
+        self.queue.append(t)
+
+        while self.queue[0] < t - 3000:
+            self.queue.popleft()
+
+        return len(self.queue)
