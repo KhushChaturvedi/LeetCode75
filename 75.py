@@ -604,3 +604,34 @@ class Solution:
                 stack.append(a)
 
         return stack
+
+
+# Problem 26: Decode String
+
+s = "3[a]2[bc]"
+
+
+class Solution:
+    def decodeString(self, s):
+
+        current = ""
+        number = 0
+        stack = []
+
+        for ch in s:
+            if ch.isdigit():
+                number = number * 10 + int(ch)
+
+            elif ch == "[":
+                stack.append((current, number))
+                current = ""
+                number = 0
+
+            elif ch == "]":
+                previous, times = stack.pop()
+                current = previous + current * times
+
+            else:
+                current += ch
+
+        return current
